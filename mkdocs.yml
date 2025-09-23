@@ -4,20 +4,20 @@ theme:
   name: "material"
   language: "zh"
   palette:
-    favicon: docs/img/favicon.png
-    # # Palette toggle for light mode
-    # - scheme: default
-    #   primary: "deep purple"
-    #   toggle:
-    #     icon: material/brightness-7 
-    #     name: Switch to dark mode
+    # favicon: docs/img/favicon.png
+    # Palette toggle for light mode
+    - scheme: default
+      primary: "deep purple"
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
 
-    # # Palette toggle for dark mode
-    # - scheme: slate
-    #   primary: "deep purple"
-    #   toggle:
-    #     icon: material/brightness-4
-    #     name: Switch to light mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: "deep purple"
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   
 
 plugins:
@@ -31,3 +31,14 @@ plugins:
 nav:
 - 开始: 开始.md
 - 函数: 函数.md
+- 谷歌风格注释: 谷歌风格注释.md
+
+
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences # 告诫代码块，类似于引用块
+  - pymdownx.superfences # 支持代码块分组
