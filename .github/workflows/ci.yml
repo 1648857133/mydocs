@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         # with:
         #   server-url: https://1648857133.github.io/mydocs/
 
       - name: set up py
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -30,7 +30,7 @@ jobs:
         # working-directory: ${{ github.workspace }}
 
       - name: test
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           key: ${{ github.ref }}
           path: .cache
