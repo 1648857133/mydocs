@@ -17,7 +17,7 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-blogging-plugin  # 记得安装其他依赖的库
       - run: pip install "mkdocstrings[python]"
-      - run: mkdir -p ./site
+      - working-directory: ${{ github.workspace }}
       - run: mkdocs build
       - run: mkdocs gh-deploy --force
       
