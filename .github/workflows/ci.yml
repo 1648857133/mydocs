@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: check code
         uses: actions/checkout@v4
-        with:
-          server-url: https://1648857133.github.io/mydocs/
+        # with:
+        #   server-url: https://1648857133.github.io/mydocs/
 
       - name: set up py
         uses: actions/setup-python@v5
