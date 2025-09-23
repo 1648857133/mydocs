@@ -30,7 +30,7 @@ def subtract(a, b) -> float:
     """两数相减.
 
     Args:
-        a (T): 第一个数
+        a (float): 第一个数
         b (T): 第二个数
 
     Returns:
