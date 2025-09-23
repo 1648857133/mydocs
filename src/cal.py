@@ -18,7 +18,7 @@ def add(a, b) -> float:
 
     Args:
         a (int): 第一个数
-        b (Tint): 第二个数
+        b (float): 第二个数
 
     Returns:
         float: 两个数的和
