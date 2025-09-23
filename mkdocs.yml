@@ -35,10 +35,10 @@ nav:
 
 
 
-markdown_extensions:
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      linenums: true
-  - pymdownx.superfences # 告诫代码块，类似于引用块
-  - pymdownx.superfences # 支持代码块分组
+# markdown_extensions:
+#   - pymdownx.highlight
+#   - pymdownx.superfences
+#   - pymdownx.highlight:
+#       linenums: true
+#   - pymdownx.superfences # 告诫代码块，类似于引用块
+#   - pymdownx.superfences # 支持代码块分组
