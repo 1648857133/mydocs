@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         # with:
         #   server-url: https://1648857133.github.io/mydocs/
 
       - name: set up py
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
