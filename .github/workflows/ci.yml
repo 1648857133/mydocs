@@ -2,6 +2,7 @@ name: ci
 on:
   push:
     branches:
+      - master 
       - main
 permissions:
   contents: write
@@ -10,25 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-            python-version: '3.11'
-            cache: 'pip'
-            cache-dependency-path: requirements.txt
-
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip list
-
-      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
         with:
@@ -36,7 +25,65 @@ jobs:
           path: ~/.cache 
           restore-keys: |
             mkdocs-material-
-      # - run: pip install mkdocs-material 
-      # - run: pip install mkdocs-blogging-plugin  # 记得安装其他依赖的库
-      # - run: pip install "mkdocstrings[python]"
+      - run: pip install mkdocs-material 
+      - run: pip install mkdocstrings[python]
+      - run: pip install mkdocs-material
       - run: mkdocs gh-deploy --force
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: ci 
+# on:
+#   push:
+#     branches:
+#       - main
+# permissions:
+#   contents: write
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Setup Python
+#         uses: actions/setup-python@v5
+#         with:
+#             python-version: '3.11'
+#             cache: 'pip'
+#             cache-dependency-path: requirements.txt
+
+#       - name: Configure Git Credentials
+#         run: |
+#           git config user.name github-actions[bot]
+#           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+#       - name: Install dependencies
+#         run: |
+#           pip install -r requirements.txt
+#           pip list
+
+      
+#       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+#       - uses: actions/cache@v4
+#         with:
+#           key: mkdocs-material-${{ env.cache_id }}
+#           path: ~/.cache 
+#           restore-keys: |
+#             mkdocs-material-
+
+#       - run: mkdocs gh-deploy --force
