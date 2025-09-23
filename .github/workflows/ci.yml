@@ -17,9 +17,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      # - name: install dependencies
-      #   run: |
-      #     pip install mkdocs
+      - name: install dependencies
+        run: |
+          pip install mkdocs
       #     pip install mkdocs-material
       #     pip install mkdocs-blogging-plugin  # 记得安装其他依赖的库
       #     pip install "mkdocstrings[python]"
