@@ -29,6 +29,11 @@ jobs:
         # run: mkdocs build
         # working-directory: ${{ github.workspace }}
 
+      - name: test
+        uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
 
       - name: deploy
         run: mkdocs gh-deploy --force
