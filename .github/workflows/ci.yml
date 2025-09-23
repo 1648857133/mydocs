@@ -3,33 +3,26 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: check code
-        uses: actions/checkout@v4
-        # with:
-        #   server-url: https://1648857133.github.io/mydocs/
-
-      - name: set up py
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: install dependencies
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
         run: |
-          pip install mkdocs
-          pip install mkdocs-material
-          pip install "mkdocstrings[python]"
-      #     pip install mkdocs-blogging-plugin  # 记得安装其他依赖的库
-      #     pip install "mkdocstrings[python]"
-        
-      # - name: build mkdocs site
-        # run: mkdocs build
-        # working-directory: ${{ github.workspace }}
-
-      - name: deploy
-        run: mkdocs gh-deploy --force
-      
-      
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache 
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
