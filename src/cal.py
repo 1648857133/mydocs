@@ -17,7 +17,7 @@ def add(a, b) -> float:
     """两数相加.
 
     Args:
-        a (T): 第一个数
+        a (int): 第一个数
         b (T): 第二个数
 
     Returns:
