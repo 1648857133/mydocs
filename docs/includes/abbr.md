@@ -1,0 +1,2 @@
+*[HTML5]: HTML5 是下一代 HTML 标准。HTML , HTML 4.01的上一个版本诞生于 1999 年。自从那以后，Web 世界已经经历了巨变。HTML5 仍处于完善之中。然而，大部分现代浏览器已经具备了某些 HTML5 支持。
+*[CSS]: Cascading Style Sheets，层叠样式表

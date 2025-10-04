@@ -3,33 +3,41 @@ import numpy as np
 from tkinter import ttk
 
 class SimOptions:
-    """
-    仿真参数类
+    """仿真参数类
 
-    Args:
-        pkt_len_var (tk.Variable): 包长度变量（字节）
-        conv_code_rate_var (tk.Variable): 卷积码率变量
-        interleave_bits_var (tk.Variable): 交织深度变量
-        modulation_var (tk.Variable): 调制方式变量
-        use_tx_div_var (tk.Variable): 发射分集变量
-        use_rx_div_var (tk.Variable): 接收分集变量
-        freq_error_var (tk.Variable): 频率误差变量
-        channel_model_var (tk.Variable): 信道模型变量
-        exp_decay_trms_var (tk.Variable): 指数衰减参数变量
-        snr_var (tk.Variable): 信噪比变量
-        use_tx_pa_var (tk.Variable): 功放变量
-        use_phase_noise_var (tk.Variable): 相位噪声变量
-        phase_noise_dbc_var (tk.Variable): 相位噪声dBc变量
-        phase_noise_cfreq_var (tk.Variable): 相位噪声拐点频率变量
-        phase_noise_floor_var (tk.Variable): 相位噪声底噪变量
-        packet_detection_var (tk.Variable): 包检测变量
-        tx_pwr_spectrum_test_var (tk.Variable): 发射功率谱测试变量
-        fine_time_sync_var (tk.Variable): 精细时间同步变量
-        freq_sync_var (tk.Variable): 频率同步变量
-        pilot_phase_tracking_var (tk.Variable): 导频相位跟踪变量
-        channel_estimation_var (tk.Variable): 信道估计变量
-        rx_timing_offset_var (tk.Variable): 接收定时偏移变量
-        pkts_per_run_var (tk.Variable): 仿真包数变量
+    1. 该类的实例化需要传入多个tkinter变量，这些变量通常绑定到GUI控件上。
+    2. 该类将这些tkinter变量的值转换为适当的类型并存储为类属性。
+
+    Attributes:
+        PktLen (int): 包长度变量（字节）
+        ConvCodeRate (str): 编码率变量
+        InterleaveBits (bool): 交织比特变量
+        Modulation (str): 调制方式变量
+        UseTxDiversity (bool): 分集发射变量
+        UseRxDiversity (str): 分集接收变量
+        FreqError (float): 频率误差变量
+        ChannelModel (str): 信道模型变量
+        ExpDecayTrms (float): 指数衰减时间变量
+        SNR (float): 信噪比变量
+        UseTxPA (bool): 使用发射功率放大器变量
+        UsePhaseNoise (bool): 使用相位噪声变量
+        PhaseNoiseDbcLevel (float): 相位噪声dBc水平变量
+        PhaseNoiseCornerFreq (float): 相位噪声拐点频率变量
+        PhaseNoiseFloor (float): 相位噪声底噪变量
+        PacketDetection (bool): 包检测变量
+        TxSpectrumShape (bool): 发射频谱形状变量
+        FineTimeSync (bool): 精细时间同步变量
+        FreqSync (bool): 频率同步变量
+        PilotPhaseTrack (bool): 导频相位跟踪变量
+        ChannelEst (bool): 信道估计变量
+        RxTimingOffset (float): 接收机定时偏移变量
+        PktsToSimulate (int): 每次运行的包数变量 
+
+    Returns:
+        None  
+    
+    Warns:
+        None
     """
     def __init__(self, pkt_len_var, conv_code_rate_var, interleave_bits_var, modulation_var,
                  use_tx_div_var, use_rx_div_var, freq_error_var, channel_model_var,
@@ -38,6 +46,33 @@ class SimOptions:
                  packet_detection_var, tx_pwr_spectrum_test_var, fine_time_sync_var,
                  freq_sync_var, pilot_phase_tracking_var, channel_estimation_var,
                  rx_timing_offset_var, pkts_per_run_var):
+        """初始化SimOptions类实例
+
+        Attributes:
+            PktLen (int): 包长度变量（字节）
+            ConvCodeRate (str): 编码率变量
+            InterleaveBits (bool): 交织比特变量
+            Modulation (str): 调制方式变量
+            UseTxDiversity (bool): 分集发射变量
+            UseRxDiversity (str): 分集接收变量
+            FreqError (float): 频率误差变量
+            ChannelModel (str): 信道模型变量
+            ExpDecayTrms (float): 指数衰减时间变量
+            SNR (float): 信噪比变量
+            UseTxPA (bool): 使用发射功率放大器变量
+            UsePhaseNoise (bool): 使用相位噪声变量
+            PhaseNoiseDbcLevel (float): 相位噪声dBc水平变量
+            PhaseNoiseCornerFreq (float): 相位噪声拐点频率变量
+            PhaseNoiseFloor (float): 相位噪声底噪变量
+            PacketDetection (bool): 包检测变量
+            TxSpectrumShape (bool): 发射频谱形状变量
+            FineTimeSync (bool): 精细时间同步变量
+            FreqSync (bool): 频率同步变量
+            PilotPhaseTrack (bool): 导频相位跟踪变量
+            ChannelEst (bool): 信道估计变量
+            RxTimingOffset (float): 接收机定时偏移变量
+            PktsToSimulate (int): 每次运行的包数变量 
+        """
         self.PktLen = int(pkt_len_var.get())*8 # 字节转比特
         self.ConvCodeRate = conv_code_rate_var.get()
         self.InterleaveBits = int(interleave_bits_var.get())
@@ -63,6 +98,11 @@ class SimOptions:
         self.PktsToSimulate = int(pkts_per_run_var.get())
 
 def ui_read_options()-> SimOptions:
+    """创建并显示GUI界面，读取用户输入的仿真参数
+
+    Returns:
+        SimOptions: 包含用户输入参数的SimOptions对象
+    """
     # 创建窗口
     root = tk.Tk()
     root.title("仿真参数设置")

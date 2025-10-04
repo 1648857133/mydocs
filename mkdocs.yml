@@ -3,6 +3,7 @@ site_name: 我的设计文档
 theme:
   name: "material"
   language: "zh"
+  favicon: "img/favicon.png" # 网站图标
   palette:
     # favicon: docs/img/favicon.png
     # Palette toggle for light mode
@@ -10,14 +11,16 @@ theme:
       primary: "deep purple"
       toggle:
         icon: material/brightness-7 
-        name: Switch to dark mode
+        name: 切换到黑暗模式
 
     # Palette toggle for dark mode
     - scheme: slate
       primary: "deep purple"
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: 切换到自动模式
+
+
   
 
 plugins:
@@ -25,20 +28,64 @@ plugins:
     handlers:
       python:
         paths: [src]
+        selection:
+            docstring_style: google
 - search
 - blog
 
 nav:
-- 开始: 开始.md
-- 函数: 函数.md
-- 谷歌风格注释: 谷歌风格注释.md
+# - 开始: 开始.md
+# - 函数: 函数.md
+# - 谷歌风格注释: 谷歌风格注释.md
+- material用法: material用法.md
+- 通信系统设计: 通信系统设计.md
+- test: test.md
 
 
 
 markdown_extensions:
+  # Python Markdown
+  - abbr # 缩略语
+  - admonition # 警告框
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      linenums: true
-  - pymdownx.superfences # 告诫代码块，类似于引用块
-  - pymdownx.superfences # 支持代码块分组
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      auto_append:
+        - docs/includes/abbr.md
+
+
+watch:
+  - docs/includes
+
+
+
