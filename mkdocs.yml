@@ -1,11 +1,54 @@
-site_name: 我的设计文档
+site_name: "我的设计文档"
+site_url: https://mydomain.org/mysite
 
 theme:
   name: "material"
   language: "zh"
   favicon: "img/favicon.png" # 网站图标
+  features: # 配置主题特性
+    - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+    - navigation.tabs.sticky #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    - navigation.top   # 返回顶部的按钮 在上滑时出现
+    - navigation.footer  # 启用页脚
+    # - toc.integrate      # 集成目录于左边
+    # - navigation.expand #打开默认展开子菜单（默认打开）
+
+    # 搜索主题配置
+    - search.suggest # 启用搜索建议(搜索时自动补全，对英文比较好)
+    - search.highlight # 搜索出的文章关键词加入高亮
+    - search.share   #搜索分享按钮
+
+    # content类
+    - content.code.copy    # 启用代码复制
+
+    # 其他
+    - toc.follow    #启用目录的锚点关注后，侧边栏会自动滚动，以便活动锚点始终可见
+
+
+
+
+
+    # 未验证功能
+    # - navigation.instant # 及时加载
+    # - navigation.instant.prefetch # 即时预取
+    # - navigation.instant.progress #进度指示器
+    # - navigation.instant.preview #全局自动预览
+    # # - navigation.sections # 启用分节导航
+    # # - navigation.indexs #使用目录索引
+    # - navigation.tracking #锚点跟踪,地址栏中的 URL 会自动更新为活动锚点，如目录中突出显示的那样。
+
+    # - content.code.annotate # 启用代码注释
+    # - content.action.edit  # 页面编辑图标
+    # - content.action.view  # 页面查看图标
+    # - content.tabs.link   #链接内容选项卡
+    # - content.tooltips    #改进的工具提示
+
+
+
+
+  keybord: 
+    - search: s, / # 搜索快捷键
   palette:
-    # favicon: docs/img/favicon.png
     # Palette toggle for light mode
     - scheme: default
       primary: "deep purple"
@@ -20,7 +63,6 @@ theme:
         icon: material/brightness-4
         name: 切换到自动模式
 
-
   
 
 plugins:
@@ -30,8 +72,10 @@ plugins:
         paths: [src]
         selection:
             docstring_style: google
-- search
-- blog
+- search:  # 搜索矿
+    separator: '[\s\u200b\-]'
+- blog # 博客插件
+- meta # 元数据插件
 
 nav:
 # - 开始: 开始.md
@@ -40,6 +84,8 @@ nav:
 - material用法: material用法.md
 - 通信系统设计: 通信系统设计.md
 - test: test.md
+- Blog: 
+  - blog/index.md
 
 
 

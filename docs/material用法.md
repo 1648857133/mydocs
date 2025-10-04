@@ -1,3 +1,57 @@
+## 创建网站
+### 初始化文件夹
+```shell
+mkdocs new .
+```
+
+得到
+```
+.
+├─ docs/
+│  └─ index.md
+└─ mkdocs.yml
+```
+
+### 基本配置
+```yaml
+site_name: My site
+site_url: https://mydomain.org/mysite
+theme:
+  name: material
+```
+
+### YAML扩展
+setting.json增加
+```json
+{
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "yaml.customTags": [ 
+    "!ENV scalar",
+    "!ENV sequence",
+    "!relative scalar",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+    "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
+  ]
+}
+```
+
+
+
+![alt text](assets/material用法/image.png)
+
+
+
+
+
+
+
+
+
+
 ## 小技巧
 
 ### 提示
@@ -7,24 +61,31 @@
 ```
 
 ### 分栏代码
+=== "简介"
 
-``` md
-=== ":octicons-file-code-16: `docs/stylesheets/extra.css`"
-
-    ``` css
-    @font-face {
-      font-family: "<font>";
-      src: "...";
-    }
+    ``` md
+    
     ```
 
-=== ":octicons-file-code-16: `mkdocs.yml`"
+=== "代码"
 
-    ``` yaml
-    extra_css:
-      - stylesheets/extra.css
+    ``` md
+    === ":octicons-file-code-16: `docs/stylesheets/extra.css`"
+
+        ``` css
+        @font-face {
+          font-family: "<font>";
+          src: "...";
+        }
+        ```
+
+    === ":octicons-file-code-16: `mkdocs.yml`"
+
+        ``` yaml
+        extra_css:
+          - stylesheets/extra.css
+        ```
     ```
-```
 
 ## 更改颜色
 
@@ -560,6 +621,133 @@ markdown_extensions:
 !!! quote
 
     说明
+
+
+#### 自定义
+```yaml
+theme
+  icon: 
+    admonition: # 告警图标,可自定义
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+```
+
+
+
+
+
+
+
+
+
+## 博客
+### 模板
+=== "目录"
+
+    ```md
+    docs
+    ├── blog
+    │   ├── index.md
+    │   └── posts
+    └── index.md
+    ```
+
+=== "代码"
+
+    ```md
+    ---
+    date:
+      created: 2023-12-31
+    ---
+
+    # 标题
+
+    摘要
+    <!-- more -->
+
+    正文
+    ```
+
+### 更新文章
+```md hl_lines="3 4"
+---
+date:
+  created: 2023-12-31
+  updated: 2024-01-02
+---
+```
+
+### 置顶
+```md
+---
+date:
+  created: 2023-12-31
+  updated: 2024-01-02
+readtime: 15
+pin: true
+---
+```
+
+### 链接
+```md
+---
+date:
+  created: 2023-12-31
+...
+links:
+  - index.md
+  - blog/index.md
+---
+```
+
+!!! note "自定义标题"
+
+    ```md
+    ---
+    date:
+      created: 2023-12-31
+    ...
+    links:
+      - Homepage: index.md
+      - Blog index: blog/index.md
+      - External links:
+        - Material documentation: https://squidfunk.github.io/mkdocs-material
+    ---
+    ```
+
+
+## 验证
+### 中文搜索支持
+```
+pip install jieba
+```
+
+```yaml
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
