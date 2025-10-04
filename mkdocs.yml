@@ -70,8 +70,6 @@ plugins:
     handlers:
       python:
         paths: [src]
-        selection:
-            docstring_style: google
 - search:  # 搜索矿
     separator: '[\s\u200b\-]'
 - blog # 博客插件
