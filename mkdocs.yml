@@ -30,7 +30,6 @@ theme:
 
 
 
-
     # 未验证功能
     # - navigation.instant # 及时加载
     # - navigation.instant.prefetch # 即时预取
@@ -137,9 +136,10 @@ extra:
   status:
     <identifier>: <identifier> # 可实现状态分配
 
+# 不用加docs/
 extra_javascript:
-  - docs/javascripts/tablesort.min.js
-  - docs/javascripts/tablesort.js
+  - javascripts/tablesort.min.js
+  - javascripts/tablesort.js
 
 watch:
   - docs/includes
