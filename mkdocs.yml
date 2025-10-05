@@ -19,7 +19,10 @@ theme:
     - search.share   #搜索分享按钮
 
     # content类
-    - content.code.copy    # 启用代码复制
+    - content.code.select # 启用代码选择
+    # - content.code.copy    # 启用代码复制(赞助后可享有)
+    - content.code.annotate # 启用代码注释
+    - content.tabs.link   # 链接内容选项卡，选项卡名称相同的话统一切换
 
     # 其他
     - toc.follow    #启用目录的锚点关注后，侧边栏会自动滚动，以便活动锚点始终可见
@@ -79,7 +82,9 @@ nav:
 # - 开始: 开始.md
 # - 函数: 函数.md
 # - 谷歌风格注释: 谷歌风格注释.md
-- material用法: material用法.md
+- material用法: 
+  - material用法.md
+  - 参考.md
 - 通信系统设计: 通信系统设计.md
 - test: test.md
 - Blog: 
@@ -95,6 +100,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - tables # 数据表
   - toc:
       permalink: true
 
@@ -127,6 +133,13 @@ markdown_extensions:
       auto_append:
         - docs/includes/abbr.md
 
+extra:
+  status:
+    <identifier>: <identifier> # 可实现状态分配
+
+extra_javascript:
+  - docs/javascripts/tablesort.min.js
+  - docs/javascripts/tablesort.js
 
 watch:
   - docs/includes

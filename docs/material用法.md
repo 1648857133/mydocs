@@ -39,12 +39,14 @@ setting.json增加
 }
 ```
 
+报错，属性 keybord 不被允许，但是网站正常编译
 
+有时候报更多的错误
 
 ![alt text](assets/material用法/image.png)
 
 
-对对对ddd
+
 
 
 
@@ -413,234 +415,25 @@ The HTML specification is maintained by the W3C.
 
 缩写词测试， CSS 
 
-### 警示
-启用
-```yml
-markdown_extensions:
-  - admonition
-```
 
-#### 直接使用
-```md
-!!! note
 
-    说明
-```
-!!! note
 
-    说明
 
-#### 自定义标题
-```md
-!!! note "标题"
 
-    说明
-```
 
-!!! note "标题"
 
-    说明
 
-#### 嵌套
-```md
-!!! note "标题1"
 
-    说明1
 
-    !!! note "标题2"
 
-        说明2
-```
 
-!!! note "标题1"
 
-    说明1
 
-    !!! note "标题2"
 
-        说明2
 
-#### 无标题
-```md
-!!! note ""
 
-    说明
-```
 
-!!! note ""
 
-    说明
-
-#### 可折叠
-
-??? note
-
-    说明
-
-#### 内联
-=== ":octicons-arrow-right-16: 内联右"
-
-    !!! info inline end "标题"
-
-        说明
-
-    ``` markdown
-    !!! info inline end "标题"
-
-        说明
-    ```
-
-=== ":octicons-arrow-left-16: 内联"
-
-    !!! info inline "标题"
-
-        说明
-    ``` markdown
-    !!! info inline "标题"
-
-        说明
-    ```
-
-#### 支持的类型
-``` md
-!!! note
-
-    说明
-```
-
-!!! note
-
-    说明
-
-``` md
-!!! abstract
-
-    说明
-```
-
-!!! abstract
-
-    说明
-
-```md
-!!! info
-
-    说明
-```
-
-!!! info
-
-    说明
-
-```md
-!!! tip
-
-    说明
-```
-
-!!! tip
-
-    说明
-
-```md
-!!! success
-
-    说明
-```
-
-!!! success
-
-    说明
-
-```md
-!!! question
-
-    说明
-```
-
-!!! question
-
-    说明
-
-```md
-!!! warning
-
-    说明
-```
-
-!!! warning
-
-    说明
-
-```md
-!!! failure
-
-    说明
-```
-
-!!! failure
-
-    说明
-
-```md
-!!! danger
-
-    说明
-```
-
-!!! danger
-
-    说明
-
-```md
-!!! bug
-
-    说明
-```
-
-!!! bug
-
-    说明
-
-```md
-!!! example
-
-    说明
-```
-
-!!! example
-
-    说明
-
-```md
-!!! quote
-
-    说明
-```
-
-!!! quote
-
-    说明
-
-
-#### 自定义
-```yaml
-theme
-  icon: 
-    admonition: # 告警图标,可自定义
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/squirrel-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
-```
 
 
 
@@ -737,6 +530,87 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考
+
+
+
+
+
 
 
 
