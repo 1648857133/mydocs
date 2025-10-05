@@ -2,3 +2,5 @@ mkdocs
 mkdocs-material
 mkdocs-blogging-plugin
 mkdocstrings[python]
+mkdocs-glightbox
+mkdocs-statistics-plugin

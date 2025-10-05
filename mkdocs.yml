@@ -1,13 +1,20 @@
-site_name: "我的设计文档"
-site_url: https://1648857133.github.io/mydocs/
+site_name: 我的设计文档
+site_url: https://github.com/1648857133/mydocs
+repo_name: 1648857133/mydocs # 仓库名称
+repo_url: https://github.com/1648857133/mydocs # 仓库地址
+site_author: "1648857133" # 作者
+docs_dir: 'docs' # 文档目录
 
 theme:
   name: "material"
   language: "zh"
-  favicon: "img/favicon.png" # 网站图标
+  icon: 
+    logo: simple/huawei # 网站图标
+    repo: fontawesome/brands/git-alt # 仓库图标
+  favicon: "img/huawei.svg" # 网站图标
   features: # 配置主题特性
     - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
-    - navigation.tabs.sticky #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    # - navigation.tabs.sticky #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
     - navigation.top   # 返回顶部的按钮 在上滑时出现
     - navigation.footer  # 启用页脚
     # - toc.integrate      # 集成目录于左边
@@ -19,16 +26,19 @@ theme:
     - search.share   #搜索分享按钮
 
     # content类
-    - content.code.select # 启用代码选择
-    # - content.code.copy    # 启用代码复制(赞助后可享有)
+    # - content.code.select # 启用代码选择(赞助后可享有)
+    - content.code.copy    # 启用代码复制
     - content.code.annotate # 启用代码注释
     - content.tabs.link   # 链接内容选项卡，选项卡名称相同的话统一切换
+    # - content.action.edit  # 页面编辑图标
+    # - content.action.view  # 页面查看图标
 
     # 其他
     - toc.follow    #启用目录的锚点关注后，侧边栏会自动滚动，以便活动锚点始终可见
+    # - navigation.instant # 及时加载
+    # - navigation.instant.prefetch # 即时预取
 
-
-
+    
 
     # 未验证功能
     # - navigation.instant # 及时加载
@@ -39,10 +49,6 @@ theme:
     # # - navigation.indexs #使用目录索引
     # - navigation.tracking #锚点跟踪,地址栏中的 URL 会自动更新为活动锚点，如目录中突出显示的那样。
 
-    # - content.code.annotate # 启用代码注释
-    # - content.action.edit  # 页面编辑图标
-    # - content.action.view  # 页面查看图标
-    # - content.tabs.link   #链接内容选项卡
     # - content.tooltips    #改进的工具提示
 
 
@@ -68,20 +74,22 @@ theme:
   
 
 plugins:
-- mkdocstrings:
-    handlers:
-      python:
-        paths: [src]
-- search:  # 搜索矿
-    separator: '[\s\u200b\-]'
-- blog # 博客插件
-- meta # 元数据插件
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+  - search:  # 搜索框
+      separator: '[\s\u200b\-]'
+  - blog # 博客插件
+  - meta # 元数据插件
+  - glightbox # 图片灯箱插件
+  - statistics # 统计插件
 
 nav:
 # - 开始: 开始.md
 # - 函数: 函数.md
 # - 谷歌风格注释: 谷歌风格注释.md
-- material用法: 
+- Material学习: 
   - material用法.md
   - 参考.md
 - 通信系统设计: 通信系统设计.md
@@ -97,37 +105,47 @@ markdown_extensions:
   - admonition # 警告框
   - attr_list
   - def_list
-  - footnotes
-  - md_in_html
+  - footnotes # 脚注
+  - md_in_html # 允许在 HTML 块中使用 Markdown
   - tables # 数据表
   - toc:
       permalink: true
+      # toc_depth: 3
 
   # Python Markdown Extensions
-  - pymdownx.arithmatex:
+  - pymdownx.arithmatex: # 数学公式
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
   - pymdownx.details
-  - pymdownx.emoji:
+  - pymdownx.emoji: # 图标，表情
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight: 
+      auto_title: true # 自动标题，一般是语言风格
+      linenums: true # 自动添加行号
+      anchor_linenums: true # 行锚链接
+      line_spans: __span
   - pymdownx.inlinehilite
+
+  # 格式
+  # - pymdownx.critic # 批注
+  - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
+  - pymdownx.tilde
+
   - pymdownx.smartsymbols
-  - pymdownx.superfences:
+  - pymdownx.superfences: # 用于图表和流程图
       custom_fences:
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
+      alternate_style: true # 选项卡
+  - pymdownx.tasklist: # 任务列表
       custom_checkbox: true
-  - pymdownx.tilde
+
   - pymdownx.snippets:
       auto_append:
         - docs/includes/abbr.md
@@ -140,6 +158,11 @@ extra:
 extra_javascript:
   - javascripts/tablesort.min.js
   - javascripts/tablesort.js
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
 
 watch:
   - docs/includes

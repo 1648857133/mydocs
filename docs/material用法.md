@@ -1,10 +1,11 @@
 ## 创建网站
 ### 初始化文件夹
+
 ```shell
 mkdocs new .
 ```
 
-得到
+可以得到
 ```
 .
 ├─ docs/
@@ -412,7 +413,6 @@ The HTML specification is maintained by the W3C.
 
 缩写词测试， HTML5 
 
-
 缩写词测试， CSS 
 
 
@@ -594,18 +594,6 @@ plugins:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-## 参考
 
 
 
