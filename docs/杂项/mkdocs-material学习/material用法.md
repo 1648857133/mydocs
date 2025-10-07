@@ -1,4 +1,7 @@
+# 开头
+
 ## 创建网站
+
 ### 初始化文件夹
 
 ```shell
@@ -44,7 +47,7 @@ setting.json增加
 
 有时候报更多的错误
 
-![alt text](assets/material用法/image.png)
+![alt text](./assets/material用法/image.png)
 
 
 

@@ -1,8 +1,10 @@
 site_name: 我的设计文档
+site_description: 我的个人文档设计
 site_url: https://github.com/1648857133/mydocs
-repo_name: 1648857133/mydocs # 仓库名称
-repo_url: https://github.com/1648857133/mydocs # 仓库地址
 site_author: "1648857133" # 作者
+
+repo_url: https://github.com/1648857133/mydocs # 仓库地址
+repo_name: 1648857133/mydocs # 仓库名称
 docs_dir: 'docs' # 文档目录
 
 theme:
@@ -12,6 +14,9 @@ theme:
     logo: simple/huawei # 网站图标
     repo: fontawesome/brands/git-alt # 仓库图标
   favicon: "img/huawei.svg" # 网站图标
+  font: 
+    text: Microsoft YaHei
+
   features: # 配置主题特性
     - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
     # - navigation.tabs.sticky #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
@@ -19,6 +24,12 @@ theme:
     - navigation.footer  # 启用页脚
     # - toc.integrate      # 集成目录于左边
     # - navigation.expand #打开默认展开子菜单（默认打开）
+    - navigation.path # 显示路径，在最上方
+    - navigation.indexs #使用目录索引
+    - navigation.instant # 及时加载
+    - navigation.instant.prefetch # 即时预取
+    - navigation.instant.progress #进度指示器
+    - navigation.instant.preview #全局自动预览
 
     # 搜索主题配置
     - search.suggest # 启用搜索建议(搜索时自动补全，对英文比较好)
@@ -30,8 +41,8 @@ theme:
     - content.code.copy    # 启用代码复制
     - content.code.annotate # 启用代码注释
     - content.tabs.link   # 链接内容选项卡，选项卡名称相同的话统一切换
-    # - content.action.edit  # 页面编辑图标
-    # - content.action.view  # 页面查看图标
+    - content.action.edit  # 页面编辑图标
+    - content.action.view  # 页面查看图标
 
     # 其他
     - toc.follow    #启用目录的锚点关注后，侧边栏会自动滚动，以便活动锚点始终可见
@@ -59,7 +70,7 @@ theme:
   palette:
     # Palette toggle for light mode
     - scheme: default
-      primary: "deep purple"
+      primary: "brown"
       toggle:
         icon: material/brightness-7 
         name: 切换到黑暗模式
@@ -80,22 +91,26 @@ plugins:
           paths: [src]
   - search:  # 搜索框
       separator: '[\s\u200b\-]'
-  - blog # 博客插件
+  - blog: # 博客插件
+      archive_date_format: MMMM yyyy
   - meta # 元数据插件
+  - tags # 标签插件
   - glightbox # 图片灯箱插件
-  - statistics # 统计插件
+  - document-dates: # 显示文档的创建和修改日期
+      position: bottom            # 显示位置：top（标题后） bottom（文档末尾）
+      type: datetime               # 时间类型：date datetime timeago，默认：date
+      exclude:                 # 排除文件列表
+        - temp.md              # 排除指定文件
+        - drafts/*             # 排除 drafts 目录下所有文件，包括子目录
+      locale: zh               # 本地化语言：en zh zh_TW es fr de ar ja ko ru，默认：en
+      date_format: '%Y-%m-%d'  # 日期格式化字符串，例如：%Y年%m月%d日、%b %d, %Y
+      time_format: '%H:%M:%S'  # 时间格式化字符串（仅在 type=datetime 时有效）
+      show_author: true        # 是否显示作者信息，默认：true
+  # - statistics # 统计插件
+      # words_per_minute: 200 # 每分钟阅读字数
+      
 
-nav:
-# - 开始: 开始.md
-# - 函数: 函数.md
-# - 谷歌风格注释: 谷歌风格注释.md
-- Material学习: 
-  - material用法.md
-  - 参考.md
-- 通信系统设计: 通信系统设计.md
-- test: test.md
-- Blog: 
-  - blog/index.md
+
 
 
 
@@ -153,6 +168,10 @@ markdown_extensions:
 extra:
   status:
     <identifier>: <identifier> # 可实现状态分配
+  social: # 社交图标，右下角
+    - icon: fontawesome/brands/github
+      link: https://github.com/1648857133
+      name: qq：1648857133
 
 # 不用加docs/
 extra_javascript:
@@ -166,6 +185,64 @@ extra_css:
 
 watch:
   - docs/includes
+
+# hooks:
+#   - hooks/auto_read_time.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+not_in_nav: includes/abbr.md
+
+# 目录
+# nav:
+#   - 主页: index.md
+#   - 博客:
+#       - 博客: blog/index.md
+#   - 杂项: 
+#       - 谷歌风格注释: 杂项/谷歌风格注释.md
+#       - 函数: 杂项/函数.md
+#       - test: 杂项/test.md
+#       - Material学习:
+#           - 杂项/mkdocs-material学习/mkdocs配置.md
+#           - 杂项/mkdocs-material学习/参考.md
+#           - 杂项/mkdocs-material学习/material用法.md
+
+# - index: index.md
+# # - 函数: 函数.md
+# # - 谷歌风格注释: 谷歌风格注释.md
+# - Material学习: 
+#   - mkdocs配置.md
+#   - 参考.md
+#   - material用法.md
+# - 通信系统设计: 通信系统设计.md
+# - test: test.md
+# - Blog: 
+#   - blog/index.md
+
+
+
+
+
+
+
+
 
 
 

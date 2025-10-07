@@ -3,4 +3,5 @@ mkdocs-material
 mkdocs-blogging-plugin
 mkdocstrings[python]
 mkdocs-glightbox
-mkdocs-statistics-plugin
+# mkdocs-statistics-plugin
+mkdocs-document-dates
